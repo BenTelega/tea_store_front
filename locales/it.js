@@ -5,6 +5,7 @@ export default {
     contact: 'Contatto',
     faq: 'FAQ',
     home: 'Home',
+    store: 'Store',
   },
   header: {
     search: 'Now italian',

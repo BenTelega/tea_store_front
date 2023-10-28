@@ -5,6 +5,7 @@ export default {
     contact: 'Contact',
     faq: 'FAQ',
     home: 'Home',
+    store: 'Store',
   },
   header: {
     search: 'Now den',

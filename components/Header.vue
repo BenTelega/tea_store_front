@@ -4,7 +4,7 @@
       <b-container>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="bold-links">
-            <b-nav-item :to="localePath('/store', this.$i18n.locale)">{{
+            <b-nav-item :to="localePath('/', this.$i18n.locale)">{{
               $t('site.home')
             }}</b-nav-item>
 

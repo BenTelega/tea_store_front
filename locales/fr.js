@@ -5,6 +5,7 @@ export default {
     contact: 'Contact',
     faq: 'Questions fréquentes',
     home: 'Home',
+    store: 'Store',
   },
   header: {
     search: 'Now fr',

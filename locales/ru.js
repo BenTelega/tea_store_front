@@ -5,6 +5,7 @@ export default {
     contact: 'Контакты',
     faq: 'FAQ',
     home: 'Главная',
+    store: 'Каталог',
   },
   header: {
     search: 'Сейчас русский',

@@ -21,7 +21,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/css/flag-icon.css'],
+  css: ['~/assets/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~/plugins/icons.js'],
@@ -52,7 +52,7 @@ export default {
     redirect: {
       login: '/login',
       logout: '/store',
-      callback: '/login',
+      callback: '/store',
       home: '/store',
     },
     strategies: {
