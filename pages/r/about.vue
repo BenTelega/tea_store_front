@@ -12,12 +12,12 @@ export default {
     }
   },
   mounted() {
-    this.$bvToast.show('my-toast')
-    this.$noty.show({
-      title: 'Просто инфа',
-      content: 'Какой-то контент',
-      variant: 'success',
-    })
+    // this.$bvToast.show('my-toast')
+    // this.$noty.show({
+    //   title: 'Просто инфа',
+    //   content: 'Какой-то контент',
+    //   variant: 'success',
+    // })
   },
 }
 </script>

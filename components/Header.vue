@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative">
     <b-navbar toggleable="sm" type="light" class="navbar-mini">
       <b-container>
         <b-collapse id="nav-collapse" is-nav>
@@ -132,7 +132,23 @@ export default {
       return this.$i18n.locales.filter((i) => i.code == this.$i18n.locale)
     },
   },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
   methods: {
+    handleScroll() {
+      const mainNavbar = document.querySelector('.navbar-custom')
+
+      if (window.scrollY > 0) {
+        mainNavbar.classList.add('fixed-top') // Добавляем класс для фиксации
+      } else {
+        mainNavbar.classList.remove('fixed-top') // Убираем класс при возвращении в начальное положение
+      }
+    },
+
     changeLanguage(lang) {
       this.$i18n.setLocale(lang)
     },
