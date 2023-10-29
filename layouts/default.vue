@@ -1,9 +1,8 @@
 <template>
   <div>
     <Header />
-    <b-container>
-      <Nuxt />
-    </b-container>
+    <Toast />
+    <Nuxt />
   </div>
 </template>
 <style>

@@ -21,10 +21,14 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/main.css'],
+  css: [
+    // '~/assets/css/vendors.css',
+    '~/assets/css/mmain.css',
+    // '~/assets/css/main.css',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/icons.js'],
+  plugins: ['~/plugins/icons.js', '~/plugins/noty.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-componentsdd
   components: true,

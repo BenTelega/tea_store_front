@@ -1,11 +1,7 @@
 <template>
   <div>
     <div class="vw-100 vh-100 position-absolute overflow-hidden">
-      <img
-        src="https://picsum.photos/id/992/1920/1440"
-        class="img-fluid"
-        alt=""
-      />
+      <img src="/pic/cover.jpg" class="img-fluid op" alt="" />
     </div>
     <Nuxt />
   </div>
@@ -36,4 +32,8 @@
 @media (min-width: 576px) .spec {
   max-width: 540px;
 } */
+
+.op {
+  filter: blur(0.3vh);
+}
 </style>

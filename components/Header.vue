@@ -138,6 +138,12 @@ export default {
     },
     async logout() {
       await this.$auth.logout()
+      this.$bvToast.show('my-toast')
+      this.$noty.show({
+        title: '!',
+        content: 'Вы вышли из системы',
+        variant: 'primary',
+      })
     },
   },
 }

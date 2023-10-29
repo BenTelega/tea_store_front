@@ -46,7 +46,7 @@
 
     <main role="main">
       <b-container class="spec">
-        <h1 class="mb-5">Cover your page.</h1>
+        <h1 class="mb-5">Awesome store.. mmm..</h1>
         <p class="lead mb-5">
           Cover is a one-page template for building simple and beautiful home
           pages. Download, edit the text, and add your own fullscreen background
