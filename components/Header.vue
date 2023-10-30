@@ -181,7 +181,7 @@ export default {
 }
 
 .bold-links a {
-  font-weight: bold;
+  font-weight: light;
 }
 
 .dp {

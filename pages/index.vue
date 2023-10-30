@@ -38,6 +38,32 @@
               <b-nav-item :to="localePath('/r/faq', this.$i18n.locale)">{{
                 $t('site.faq')
               }}</b-nav-item>
+
+<b-nav-item-dropdown right class="dp">
+              <template #button-content>
+                <b-img
+                  class="mr-1"
+                  v-bind="mainProps"
+                  rounded
+                  :src="`/pic/${currentLocale[0].long_iso}.svg`"
+                />
+              </template>
+              <b-dropdown-item
+                v-for="locale in availableLocales"
+                :key="locale.code"
+                @click="changeLanguage(locale.code)"
+              >
+                <b-img
+                  v-bind="mProps"
+                  rounded
+                  :src="`/pic/${locale.long_iso}.svg`"
+                />
+
+                {{ locale.name }}</b-dropdown-item
+              >
+            </b-nav-item-dropdown>
+          </b-navbar-nav>
+
             </b-navbar-nav>
           </div>
         </b-container>
@@ -46,11 +72,9 @@
 
     <main role="main">
       <b-container class="spec">
-        <h1 class="mb-5">Awesome store.. mmm..</h1>
+        <h1 class="mb-5">{{ landingTitle }}</h1>
         <p class="lead mb-5">
-          Cover is a one-page template for building simple and beautiful home
-          pages. Download, edit the text, and add your own fullscreen background
-          photo to make it your own.
+          {{ landingBody }}
         </p>
         <b-button to="/store" size="lg" variant="success" class="shadow"
           >Store now</b-button
@@ -77,5 +101,40 @@ export default {
       title: 'Welcome',
     }
   },
+  data() {
+    return {
+      mainProps: {
+        width: 18,
+        height: 14,
+      },
+      mProps: {
+        width: 26,
+        height: 14,
+      },
+    }
+  },
+  async mounted() {
+    await this.$store.dispatch('landing/fetchTitle', `${this.$i18n.locale}`)
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
+    },
+    landingTitle() {
+      return this.$store.getters['landing/getTitle']['title']
+    },
+    landingBody() {
+      return this.$store.getters['landing/getTitle']['body']
+    },
+    currentLocale() {
+      return this.$i18n.locales.filter((i) => i.code == this.$i18n.locale)
+    },
+  },
+  methods: {
+    
+    changeLanguage(lang) {
+      this.$i18n.setLocale(lang)
+    },
+  }
 }
 </script>
