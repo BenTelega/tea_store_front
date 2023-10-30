@@ -60,7 +60,7 @@
         <b-col md="9">
           <Card variant="primary">{{ selectedCategoryName }}</Card>
 
-          <div class="row y-gap-30" v-if="!isLoading">
+          <div class="row y-gap-30" v-if="isLoading">
             <b-col lg="3" md="4" class="mb-4" v-for="item in 26">
               <b-card>
                 <b-skeleton animation="wave" width="85%"></b-skeleton>

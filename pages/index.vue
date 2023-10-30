@@ -76,7 +76,9 @@
         <p class="lead mb-5">
           {{ landingBody }}
         </p>
-        <b-button to="/store" size="lg" variant="success" class="shadow"
+
+
+        <b-button :to="localePath('/store', this.$i18n.locale)" size="lg" variant="success" class="shadow"
           >{{ $t('landing.cta') }}</b-button
         >
       </b-container>
