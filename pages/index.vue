@@ -77,7 +77,7 @@
           {{ landingBody }}
         </p>
         <b-button to="/store" size="lg" variant="success" class="shadow"
-          >Store now</b-button
+          >{{ $t('landing.cta') }}</b-button
         >
       </b-container>
     </main>
@@ -138,3 +138,7 @@ export default {
   }
 }
 </script>
+
+<style>
+
+</style>

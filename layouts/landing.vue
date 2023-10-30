@@ -9,7 +9,7 @@
 <style>
 @media (min-height: 576px) {
   .spec {
-    max-width: 740px;
+    max-width: 790px;
   }
 }
 

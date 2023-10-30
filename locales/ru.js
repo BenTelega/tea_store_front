@@ -11,4 +11,7 @@ export default {
     search: 'Сейчас русский',
     langswitcher: 'Сменить язык',
   },
+  landing: {
+    cta: 'Store now',
+  },
 }

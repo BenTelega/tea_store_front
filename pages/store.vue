@@ -61,12 +61,13 @@
           <Card variant="primary">{{ selectedCategoryName }}</Card>
 
           <div class="row y-gap-30" v-if="!isLoading">
-            <b-card>
-              <b-skeleton animation="wave" width="85%"></b-skeleton>
-              <b-skeleton animation="wave" width="55%"></b-skeleton>
-              <b-skeleton animation="wave" width="70%"></b-skeleton>
-            </b-card>
-            <b-col> </b-col>
+            <b-col lg="3" md="4" class="mb-4" v-for="item in 26">
+              <b-card>
+                <b-skeleton animation="wave" width="85%"></b-skeleton>
+                <b-skeleton animation="wave" width="55%"></b-skeleton>
+                <b-skeleton animation="wave" width="70%"></b-skeleton>
+              </b-card>
+            </b-col>
           </div>
           <b-row v-else>
             <b-col lg="3" md="4" class="mb-4" v-for="item in 26">

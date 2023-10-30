@@ -11,4 +11,7 @@ export default {
     search: 'Now english',
     langswitcher: 'Change language',
   },
+  landing: {
+    cta: 'Store now',
+  },
 }
