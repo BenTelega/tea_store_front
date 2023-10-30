@@ -3,7 +3,7 @@ export default {
     title: 'Tienda de té para mi hermano',
     about: 'About',
     contact: 'Contact',
-    faq: 'FAQ',
+    faq: 'F.A.Q.',
     home: 'Home',
     store: 'Store',
   },

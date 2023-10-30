@@ -3,7 +3,7 @@ export default {
     title: 'Tea shop for my bro',
     about: 'About',
     contact: 'Contact',
-    faq: 'FAQ',
+    faq: 'F.A.Q',
     home: 'Home',
     store: 'Store',
   },

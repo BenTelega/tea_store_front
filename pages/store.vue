@@ -70,19 +70,21 @@
             </b-col>
           </div>
           <b-row v-else>
-            <b-col lg="3" md="4" class="mb-4" v-for="item in 26">
+            <b-col lg="3" md="4" class="mb-4" v-for="item in products">
               <div class="product-grid2 shadow-sm">
                 <div class="product-image2">
                   <a href="#">
-                    <img class="pic-1" src="/pic/Girl-Scout-Cookies.jpg" />
-                    <img class="pic-2" src="/pic/Girl-Scout-Cookies.jpg" />
+                    <img class="pic-1" :src="item.cover" />
+                    <img class="pic-2" :src="item.cover" />
                   </a>
 
                   <a class="add-to-cart" href="">View</a>
                 </div>
                 <div class="product-content">
                   <b-badge href="#" variant="info">Категория</b-badge>
-                  <h3 class="title"><a href="#">Girl Scout Cookies</a></h3>
+                  <h3 class="title">
+                    <a href="#">{{ item.name }}</a>
+                  </h3>
                   <span class="price">$145.00</span>
                 </div>
               </div>

@@ -5,7 +5,7 @@
 <script>
 export default {
   name: 'AboutPage',
-  layout: 'default',
+  layout: 'langing',
   head() {
     return {
       title: 'About',

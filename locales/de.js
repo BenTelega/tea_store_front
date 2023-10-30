@@ -3,7 +3,7 @@ export default {
     title: 'Teeladen für meinen Bruder',
     about: 'About',
     contact: 'Contact',
-    faq: 'FAQ',
+    faq: 'F.A.Q',
     home: 'Home',
     store: 'Store',
   },
