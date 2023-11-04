@@ -72,7 +72,7 @@
 
     <main role="main">
       <b-container class="spec">
-        <h1 class="mb-5">{{ landingTitle }}</h1>
+        <h1 class="mb-3">{{ landingTitle }}</h1>
         <p class="lead mb-5">
           {{ landingBody }}
         </p>
@@ -82,17 +82,34 @@
         >
       </b-container>
     </main>
-длолдолдо
     <footer class="mt-auto">
-      <p class="text-white-50">
-        Created with love for
-        <a href="" class="text-white">Bro</a>
-      </p>
+      <Flicking :options="{ align: 'center', circular: true }"  :plugins="plugins">
+					<div style="width: 280px; height: 200px;"
+						v-for="(testimonial, i) in 50"
+						:key="i"
+						class="mr-3"
+					>
+          <b-card  bg-variant="dark" class="shadow-lg">
+            <template #header>
+              <b-avatar variant="danger" text="BV"></b-avatar>
+        <h6 class="mb-0">Header Slot</h6>
+      </template>
+            <b-card-text>
+              <em>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+
+              </em>
+    </b-card-text>
+          </b-card>
+					</div>
+				</Flicking>
     </footer>
   </div>
 </template>
 
 <script>
+import { AutoPlay } from "@egjs/flicking-plugins";
+
 export default {
   name: 'IndexPage',
   layout: 'landing',
@@ -104,6 +121,7 @@ export default {
   },
   data() {
     return {
+      plugins: [new AutoPlay()],
       mainProps: {
         width: 18,
         height: 14,

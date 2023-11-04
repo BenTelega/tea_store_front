@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import backgroundImagePath from '~/assets/cover.jpg'
+import backgroundImagePath from '~/assets/cover1.jpg'
 export default {
   data() {
     return { backgroundImagePath }

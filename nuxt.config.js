@@ -32,10 +32,12 @@ export default {
     // '~/assets/css/vendors.css',
     '~/assets/css/mmain.css',
     // '~/assets/css/main.css',
+    '@egjs/vue-flicking/dist/flicking.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/icons.js', '~/plugins/noty.js'],
+  plugins: ['~/plugins/icons.js', '~/plugins/noty.js', 
+  { src: '~/plugins/flicking.js', mode: 'client' },],
 
   // Auto import components: https://go.nuxtjs.dev/config-componentsdd
   components: true,
