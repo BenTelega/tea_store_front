@@ -18,10 +18,14 @@ export default {
 }
 </script>
 
-<style>
+<style >
+.spec h1 {
+  font-size: 3.3rem;
+}
+
 @media (min-height: 576px) {
   .spec {
-    max-width: 790px;
+    max-width: 890px;
   }
 }
 

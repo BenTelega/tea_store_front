@@ -115,6 +115,7 @@ export default {
     }
   },
   async mounted() {
+    await this.$store.dispatch('fetchSiteConfig', `${this.$i18n.locale}`)
     await this.$store.dispatch('categories/fetchCategories')
     await this.$store.dispatch('items/fetchItems')
     // this.$bvToast.show('my-toast')

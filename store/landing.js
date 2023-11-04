@@ -4,6 +4,7 @@ export const state = () => ({
   categories: [],
   title: '',
   body: '',
+  button_text: '',
 })
 
 export const mutations = {
@@ -41,6 +42,4 @@ export const actions = {
       throw error // Прокиньте ошибку для обработки в компоненте
     }
   },
-
-
 }

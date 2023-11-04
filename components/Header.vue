@@ -78,7 +78,7 @@
           <b-navbar-brand
             :to="localePath('store', this.$i18n.locale)"
             class="upper"
-            >{{ $t('site.title') }}</b-navbar-brand
+            >{{ getSiteConfig['title'] }}</b-navbar-brand
           >
 
           <b-nav-text>{{ $t('header.search') }}</b-nav-text>
@@ -124,7 +124,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    ...mapGetters(['isAuthenticated', 'loggedInUser', 'getSiteConfig']),
     availableLocales() {
       return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
     },

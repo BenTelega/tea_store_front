@@ -1,11 +1,12 @@
 export default {
   site: {
-    title: 'Teeladen für meinen Bruder',
+    title: 'Shop Name de',
     about: 'About',
     contact: 'Contact',
     faq: 'F.A.Q',
     home: 'Home',
     store: 'Store',
+    testmonials: "Testmonials"
   },
   header: {
     search: 'Now den',

@@ -6,6 +6,7 @@ export default {
     faq: 'FAQ',
     home: 'Главная',
     store: 'Каталог',
+    testmonials: "Отзывы"
   },
   header: {
     search: 'Сейчас русский',

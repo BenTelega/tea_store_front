@@ -6,6 +6,7 @@ export default {
     faq: 'Questions fréquentes',
     home: 'Home',
     store: 'Store',
+    testmonials: "Testmonials"
   },
   header: {
     search: 'Now fr',
