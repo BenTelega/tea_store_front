@@ -74,8 +74,8 @@
               <div class="product-grid2 shadow-sm">
                 <div class="product-image2">
                   <a href="#">
-                    <img class="pic-1" :src="item.cover" />
-                    <img class="pic-2" :src="item.cover" />
+                    <img class="pic-1" src="/pic/demo1.jpg" />
+                    <img class="pic-2" src="/pic/demo1.jpg" />
                   </a>
 
                   <a class="add-to-cart" href="">View</a>

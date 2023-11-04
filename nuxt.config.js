@@ -6,7 +6,7 @@ export default {
 
   // Global page headers ===================================================
   head: {
-    titleTemplate: '%s - Tea Store',
+    titleTemplate: '%s - Store',
     title: 'Tea Store',
     htmlAttrs: {
       lang: 'en',

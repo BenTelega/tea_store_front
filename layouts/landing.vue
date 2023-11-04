@@ -2,9 +2,8 @@
   <div>
     <div
       class="vw-100 vh-100 position-absolute overflow-hidden op"
-      :style="{ backgroundImage: `url(${backgroundImagePath})` }"
+      :style="{ backgroundImage: `url(${landingCover})` }"
     >
-      <!-- <img src="/pic/2.jpg" class="img-fluid op" alt="" /> -->
     </div>
     <Nuxt />
   </div>
@@ -15,6 +14,11 @@ export default {
   data() {
     return { backgroundImagePath }
   },
+  computed: {
+    landingCover() {
+      return "https://shoppify-test.ru" + this.$store.getters['landing/getTitle']['cover']
+    },
+  }
 }
 </script>
 

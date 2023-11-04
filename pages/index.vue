@@ -23,9 +23,9 @@
               <b-nav-item :to="localePath('/r/contact', this.$i18n.locale)">{{
                 $t('site.contact')
               }}</b-nav-item>
-              <b-nav-item :to="localePath('/r/faq', this.$i18n.locale)">{{
+              <!-- <b-nav-item :to="localePath('/r/faq', this.$i18n.locale)">{{
                 $t('site.faq')
-              }}</b-nav-item>
+              }}</b-nav-item> -->
 
               <b-nav-item-dropdown right class="dp">
                 <template #button-content>
@@ -60,7 +60,7 @@
       <b-container class="spec">
         <h2 class="mb-3 text-monospace">{{$t('site.testmonials') }}</h2>
       <Flicking :options="{ align: 'center', circular: true }" :plugins="plugins">
-        <div style="width: 330px; height: 170px;" v-for="(testimonial, i) in 50" :key="i" class="mr-3">
+        <div style="width: 330px; height: 140px;" v-for="(testimonial, i) in 50" :key="i" class="mr-3">
           <b-card bg-variant="dark" class="shadow-lg">
             <template #header>
               <b-avatar size="30" variant="danger" text="IP" class="align-baseline"></b-avatar>
@@ -92,7 +92,7 @@ export default {
 
   head() {
     return {
-      title: 'Welcome',
+      title: this.$store.getters['getSiteConfig']['title'] ,
     }
   },
   data() {
@@ -128,6 +128,7 @@ export default {
     landingButton() {
       return this.$store.getters['landing/getTitle']['button_text']
     },
+
     currentLocale() {
       return this.$i18n.locales.filter((i) => i.code == this.$i18n.locale)
     },

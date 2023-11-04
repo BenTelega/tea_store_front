@@ -15,9 +15,9 @@
             <b-nav-item :to="localePath('/r/contact', this.$i18n.locale)">{{
               $t('site.contact')
             }}</b-nav-item>
-            <b-nav-item :to="localePath('/r/faq', this.$i18n.locale)">{{
+            <!-- <b-nav-item :to="localePath('/r/faq', this.$i18n.locale)">{{
               $t('site.faq')
-            }}</b-nav-item>
+            }}</b-nav-item> -->
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->
