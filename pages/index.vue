@@ -82,7 +82,7 @@
         >
       </b-container>
     </main>
-
+длолдолдо
     <footer class="mt-auto">
       <p class="text-white-50">
         Created with love for

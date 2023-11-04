@@ -1,6 +1,6 @@
 export default {
   site: {
-    title: 'Tea shop for my bro',
+    title: 'Shop Name',
     about: 'About',
     contact: 'Contact',
     faq: 'F.A.Q',

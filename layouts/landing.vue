@@ -1,11 +1,23 @@
 <template>
   <div>
-    <div class="vw-100 vh-100 position-absolute overflow-hidden">
-      <img src="/pic/cover.jpg" class="img-fluid op" alt="" />
+    <div
+      class="vw-100 vh-100 position-absolute overflow-hidden op"
+      :style="{ backgroundImage: `url(${backgroundImagePath})` }"
+    >
+      <!-- <img src="/pic/2.jpg" class="img-fluid op" alt="" /> -->
     </div>
     <Nuxt />
   </div>
 </template>
+<script>
+import backgroundImagePath from '~/assets/cover.jpg'
+export default {
+  data() {
+    return { backgroundImagePath }
+  },
+}
+</script>
+
 <style>
 @media (min-height: 576px) {
   .spec {
@@ -34,6 +46,10 @@
 } */
 
 .op {
-  filter: blur(0.3vh);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #999;
 }
 </style>
