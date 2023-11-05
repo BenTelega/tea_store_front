@@ -1,21 +1,21 @@
 export const state = () => ({
-  cart: [],
+	cart: [],
 });
 
 export const mutations = {
-  setCart(state, product) {
-    state.cart.push(product);
-  },
+	setCart(state, product) {
+		state.cart.push(product);
+	},
 };
 
 export const getters = {
-  CART(state) {
-    return state.cart;
-  },
+	CART(state) {
+		return state.cart;
+	},
 };
 
 export const actions = {
-  addToCart({ commit }, product) {
-    commit('setCart', product);
-  },
+	addToCart({ commit }, product) {
+		commit('setCart', product);
+	},
 };

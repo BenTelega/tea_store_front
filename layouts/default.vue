@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <Header />
-    <Toast />
-    <Nuxt />
-    
-  </div>
+	<div>
+		<Header />
+		<Toast />
+		<Nuxt />
+	</div>
 </template>
 <style>
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.2s;
+	transition: opacity 0.2s;
 }
 .page-enter,
 .page-leave-active {
-  opacity: 0;
+	opacity: 0;
 }
 </style>
