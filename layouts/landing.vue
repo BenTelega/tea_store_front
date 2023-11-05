@@ -54,5 +54,10 @@ export default {
 	background-attachment: fixed;
 	background-size: cover;
 	background-color: #999;
+	/* -webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px); */
 }
 </style>

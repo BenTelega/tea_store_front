@@ -2,7 +2,7 @@
 	<div>
 		<div
 			class="vw-100 vh-100 position-absolute overflow-hidden op"
-			:style="{ backgroundImage: `url(${landingCover})` }"
+			:style="styleObject"
 		></div>
 		<div
 			class="d-flex vw-100 vh-100 position-relative p-3 mx-auto flex-column text-center text-white"
@@ -140,6 +140,7 @@ export default {
 	},
 	data() {
 		return {
+			blur: '4px',
 			plugins: [new AutoPlay(), new Arrow()],
 			mainProps: {
 				width: 18,
@@ -171,10 +172,20 @@ export default {
 			'landingBody',
 			'landingButton',
 			'landingCover',
+			'landingBlur',
 			'testmonials',
 		]),
 
 		...mapGetters(['siteTitle']),
+
+		styleObject() {
+			const imgUrl = this.landingCover;
+			const blurVal = this.blur;
+			return {
+				backgroundImage: `url('${imgUrl}')`,
+				filter: `blur(${blurVal})`,
+			};
+		},
 
 		availableLocales() {
 			return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale);

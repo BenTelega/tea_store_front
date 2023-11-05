@@ -15,6 +15,9 @@ export const mutations = {
 };
 
 export const getters = {
+	landingBlur(state) {
+		return state.landing.blur;
+	},
 	landingTitle(state) {
 		return state.landing.title;
 	},
