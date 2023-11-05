@@ -96,9 +96,11 @@
               <b-dropdown-item href="#">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown> -->
 					</b-navbar-nav>
+					{{ cart }}
 					<b-button variant="info" class="mr-3" size="sm">
 						<b-icon icon="cart4"></b-icon>
 						$0.00
+						<b-badge variant="light" v-if="countCart">{{ countCart }}</b-badge>
 					</b-button>
 					<b-dropdown right text="Menu" size="sm">
 						<b-dropdown-item>Item 1</b-dropdown-item>
@@ -113,7 +115,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 export default {
 	data() {
 		return {
@@ -129,6 +131,8 @@ export default {
 	},
 	computed: {
 		...mapGetters(['isAuthenticated', 'loggedInUser', 'getSiteConfig']),
+		...mapGetters('cart', ['countCart']),
+		...mapState('cart', ['cart']),
 		availableLocales() {
 			return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale);
 		},

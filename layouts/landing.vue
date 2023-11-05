@@ -1,26 +1,19 @@
 <template>
 	<div>
-		<div
-			class="vw-100 vh-100 position-absolute overflow-hidden op"
-			:style="{ backgroundImage: `url(${landingCover})` }"
-		></div>
 		<Nuxt />
 	</div>
 </template>
 <script>
-import backgroundImagePath from '~/assets/cover1.jpg';
 export default {
 	data() {
-		return { backgroundImagePath };
+		return {};
 	},
-	computed: {
-		landingCover() {
-			return (
-				'https://shoppify-test.ru' +
-				this.$store.getters['landing/getTitle']['cover']
-			);
-		},
-	},
+	// methods: {
+	// 	...mapActions('landing', ['fetchLanding']),
+	// },
+	// async mounted() {
+	// 	await this.fetchLanding(this.$i18n.locale);
+	// },
 };
 </script>
 

@@ -1,19 +1,13 @@
 // LANDING STORE
 
 export const state = () => ({
-	categories: [],
-	title: '',
-	body: '',
-	button_text: '',
+	landing: {},
 	testmonials: [],
 });
 
 export const mutations = {
-	setCategories(state, categories) {
-		state.categories = categories;
-	},
-	setTitle(state, title) {
-		state.title = title;
+	setLanding(state, data) {
+		state.landing = data;
 	},
 	setTestmonials(state, testmonials) {
 		state.testmonials = testmonials;
@@ -21,25 +15,31 @@ export const mutations = {
 };
 
 export const getters = {
-	getCategories(state) {
-		return state.categories;
+	landingTitle(state) {
+		return state.landing.title;
 	},
-	getTitle(state) {
-		return state.title;
+	landingBody(state) {
+		return state.landing.body;
 	},
-	getTestmonials(state) {
+	landingButton(state) {
+		return state.landing.button_text;
+	},
+	landingCover(state) {
+		return 'https://shoppify-test.ru' + state.landing.cover;
+	},
+	testmonials(state) {
 		return state.testmonials;
 	},
 };
 
 export const actions = {
-	async fetchTitle({ commit }, locale = null) {
+	async fetchLanding({ commit }, locale = null) {
 		try {
 			// Выполните GET-запрос с использованием Axios
 			const response = await this.$axios.get(`/cms/landing/${locale}`);
 
 			// Если запрос успешный, обновите состояние с полученными данными
-			commit('setTitle', response.data);
+			commit('setLanding', response.data);
 
 			// Верните данные для обработки в компоненте, если это необходимо
 			return response.data;

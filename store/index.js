@@ -1,5 +1,5 @@
 export const state = () => ({
-	config: '',
+	config: {},
 	about: '',
 	contact: '',
 });
@@ -17,6 +17,9 @@ export const mutations = {
 };
 
 export const getters = {
+	siteTitle(state) {
+		return state.config.title;
+	},
 	getContact(state) {
 		return state.contact;
 	},

@@ -2,6 +2,7 @@
 
 export const state = () => ({
 	items: [],
+	categories: [],
 	isLoading: false,
 });
 
@@ -13,8 +14,11 @@ export const mutations = {
 		state.isLoading = false;
 	},
 
-	setItems(state, items) {
-		state.items = items;
+	setItems(state, products) {
+		state.items = products;
+	},
+	setCategories(state, categories) {
+		state.categories = categories;
 	},
 };
 
@@ -22,7 +26,10 @@ export const getters = {
 	getLoading(state) {
 		return state.isLoading;
 	},
-	getItems(state) {
+	categories(state) {
+		return state.categories;
+	},
+	products(state) {
 		return state.items;
 	},
 };
@@ -50,6 +57,22 @@ export const actions = {
 			commit('stopLoading');
 			// Обработайте ошибку, если запрос не удался
 			console.error('Ошибка при получении товаров:', error);
+			throw error; // Прокиньте ошибку для обработки в компоненте
+		}
+	},
+	async fetchCategories({ commit }) {
+		try {
+			// Выполните GET-запрос с использованием Axios
+			const response = await this.$axios.get(`/v1/categories`);
+
+			// Если запрос успешный, обновите состояние с полученными данными
+			commit('setCategories', response.data);
+
+			// Верните данные для обработки в компоненте, если это необходимо
+			return response.data;
+		} catch (error) {
+			// Обработайте ошибку, если запрос не удался
+			console.error('Ошибка при получении категорий:', error);
 			throw error; // Прокиньте ошибку для обработки в компоненте
 		}
 	},

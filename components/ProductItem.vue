@@ -47,7 +47,8 @@ export default {
 			this.$emit('showProductModal', product);
 		},
 		addToCart() {
-			this.$emit('addToCart', this.product_data);
+			alert('ok');
+			// this.$emit('addToCart', this.product_data);
 		},
 	},
 };

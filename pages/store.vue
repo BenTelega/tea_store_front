@@ -30,7 +30,6 @@
 			</b-container>
 		</b-modal>
 		<!-- <section class="layout-pt-sm layout-pb-lg bg-yellow-4"></section> -->
-		<Cart v-if="CART.length" :cart_data="CART" />
 		<b-container>
 			<b-row>
 				<!-- Боковая колонка -->
@@ -75,7 +74,7 @@
 					>
 					</b-card>
 
-					<div class="row y-gap-30" v-if="isLoading">
+					<div class="row y-gap-30" v-if="getLoading">
 						<b-col lg="3" md="4" class="mb-4" v-for="(item, i) in 8" :key="i">
 							<b-card>
 								<b-skeleton animation="wave" width="85%"></b-skeleton>
@@ -90,7 +89,6 @@
 							:key="product.id"
 							:product_data="product"
 							@showProductModal="showProductModal"
-							@addToCart="addToCart"
 						/>
 					</b-row>
 
@@ -102,7 +100,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
 	name: 'StorePage',
@@ -123,55 +121,36 @@ export default {
 		};
 	},
 	async mounted() {
-		await this.$store.dispatch('fetchSiteConfig', `${this.$i18n.locale}`);
-		await this.$store.dispatch('categories/fetchCategories');
-		await this.$store.dispatch('items/fetchItems');
-		// this.$bvToast.show('my-toast')
-		// this.$notifier.showMessage({
-		//   content: 'Какой-то контент',
-		//   variant: 'primary',
-		// })
+		// await this.$store.dispatch('fetchSiteConfig', `${this.$i18n.locale}`);
+		await this.fetchCategories();
+		await this.fetchItems();
 	},
 	computed: {
-		CART() {
-			return this.$store.getters['cart/CART'];
-		},
-		categories() {
-			return this.$store.getters['categories/getCategories'];
-		},
-		products() {
-			return this.$store.getters['items/getItems'];
-		},
+		...mapGetters('items', ['getLoading', 'products', 'categories']),
+		// Найдем название выбранной категории на основе selectedCategory
 		selectedCategoryName() {
-			// Найдем название выбранной категории на основе selectedCategory
 			const selectedCategory = this.categories.find(
 				(category) => category.id === this.selectedCategory
 			);
 			return selectedCategory ? selectedCategory.name : 'Все категории';
 		},
-		isLoading() {
-			return this.$store.getters['items/getLoading'];
-		},
 	},
 
 	methods: {
+		...mapActions('items', ['fetchItems', 'fetchCategories']),
+
 		selectCategory(categoryId) {
 			this.selectedCategory = categoryId;
-			// Вы можете выполнить здесь запрос к товарам с выбранной категорией
 		},
 		showProductModal(product) {
 			this.selectedProduct = product;
 			this.modalShow = true;
 		},
-		addToCart(data) {
-			console.log(data);
-			this.$store.dispatch('cart/addToCart', data);
-		},
 	},
 
 	watch: {
 		selectedCategory: function (value) {
-			this.$store.dispatch('items/fetchItems', value);
+			this.fetchItems(value);
 		},
 	},
 };
