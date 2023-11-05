@@ -1,6 +1,6 @@
 import { i18n } from './locales/i18n-nuxt-config'
 export default {
-  server: { port: 7002, host: '0.0.0.0' },
+  server: { port: 7007, host: '0.0.0.0' },
   ssr: false,
   target: 'static',
 
@@ -16,6 +16,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      { name: 'theme-color', content: '#468996' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     link: [
@@ -36,8 +37,11 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/icons.js', '~/plugins/noty.js', 
-  { src: '~/plugins/flicking.js', mode: 'client' },],
+  plugins: [
+    '~/plugins/icons.js',
+    '~/plugins/noty.js',
+    { src: '~/plugins/flicking.js', mode: 'client' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-componentsdd
   components: true,
