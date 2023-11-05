@@ -1,5 +1,6 @@
 <template>
   <div>
+    <b-modal v-model="modalShow">{{selectedProduct}}</b-modal>
     <!-- <section class="layout-pt-sm layout-pb-lg bg-yellow-4"></section> -->
     <b-container>
       <b-row>
@@ -58,7 +59,7 @@
 
         <!-- Основная колонка -->
         <b-col md="9">
-          <Card variant="primary">{{ selectedCategoryName }}</Card>
+          <Card variant="primary"><h2>{{ selectedCategoryName }}</h2></Card>
 
           <div class="row y-gap-30" v-if="isLoading">
             <b-col lg="3" md="4" class="mb-4" v-for="item in 26">
@@ -70,7 +71,7 @@
             </b-col>
           </div>
           <b-row v-else>
-            <b-col lg="3" md="4" class="mb-4" v-for="item in products">
+            <b-col lg="3" md="4" class="mb-4" v-for="product in products">
               <div class="product-grid2 shadow-sm">
                 <div class="product-image2">
                   <a href="#">
@@ -78,12 +79,13 @@
                     <img class="pic-2" src="/pic/demo1.jpg" />
                   </a>
 
-                  <a class="add-to-cart" href="">View</a>
+                  <a class="add-to-cart" @click.prevent="showProductModal(product)">View</a>
                 </div>
                 <div class="product-content">
                   <b-badge href="#" variant="info">Категория</b-badge>
                   <h3 class="title">
-                    <a href="#">{{ item.name }}</a>
+                    <a href="#">{{ product.name }}</a>
+
                   </h3>
                   <span class="price">$145.00</span>
                 </div>
@@ -102,7 +104,6 @@
 export default {
   name: 'StorePage',
   layout: 'default',
-
   head() {
     return {
       title: 'Store',
@@ -111,6 +112,9 @@ export default {
 
   data() {
     return {
+      showModal: false,
+      modalShow: false,
+      selectedProduct: null,
       selectedCategory: null, // Сюда будет добавлена выбранная категория
     }
   },
@@ -147,6 +151,10 @@ export default {
     selectCategory(categoryId) {
       this.selectedCategory = categoryId
       // Вы можете выполнить здесь запрос к товарам с выбранной категорией
+    },
+    showProductModal(product) {
+      this.selectedProduct = product;
+      this.modalShow = true;
     },
   },
 
