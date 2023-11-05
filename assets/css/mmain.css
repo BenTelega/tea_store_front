@@ -62,7 +62,7 @@ h3.h3 {
 
 .product-grid2 .add-to-cart {
   color: #fff;
-  background-color: #05c46b;
+  background-color: #1e272e;
   font-size: 15px;
   text-align: center;
   width: 100%;
@@ -74,7 +74,7 @@ h3.h3 {
   transition: all 0.3s;
 }
 .product-grid2 .add-to-cart:hover {
-  background-color: #05c46b;
+  background-color: #1e272e;
   text-decoration: none;
 }
 .product-grid2:hover .add-to-cart {

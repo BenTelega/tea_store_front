@@ -5,9 +5,7 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="bold-links">
             <b-nav-item :to="localePath('/', this.$i18n.locale)">
-            {{
-              $t('site.home')
-            }}</b-nav-item>
+            {{ $t('site.home') }}</b-nav-item>
 
 
             <b-nav-item :to="localePath('/store', this.$i18n.locale)">{{
@@ -98,7 +96,7 @@
               <b-dropdown-item href="#">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown> -->
           </b-navbar-nav>
-          <b-button variant="danger" class="mr-3" size="sm">
+          <b-button variant="info" class="mr-3" size="sm">
             <b-icon icon="cart4"></b-icon>
             $0.00
           </b-button>
@@ -176,7 +174,7 @@ export default {
 }
 
 .navbar-mini {
-  background-color: #05c46b;
+  background-color: #10ac84;
   padding: 1px;
 }
 

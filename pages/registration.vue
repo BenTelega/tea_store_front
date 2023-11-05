@@ -74,7 +74,7 @@ export default {
           this.$noty.show({
             title: 'Ошибка',
             content: 'Такой логин уже используется',
-            variant: 'error',
+            variant: 'danger',
           })
         // Обработайте ошибку (например, отображение сообщения об ошибке)
       }

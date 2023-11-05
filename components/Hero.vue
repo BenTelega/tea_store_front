@@ -26,6 +26,5 @@ export default {
 <style>
 .custom-jumbotron {
   background-color: #1e272e;
-  border-bottom: 3px solid #485460;
 }
 </style>

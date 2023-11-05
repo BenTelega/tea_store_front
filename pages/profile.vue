@@ -1,5 +1,7 @@
 <template>
-  <div><h1>PROFILE</h1></div>
+  <b-jumbotron class="custom-jumbotron" text-variant="white" border-variant="dark" fluid header="Профиль">
+
+  </b-jumbotron>
 </template>
 <script>
 export default {
@@ -11,12 +13,12 @@ export default {
     }
   },
   mounted() {
-    this.$bvToast.show('my-toast')
-    this.$noty.show({
-      title: 'Просто инфа',
-      content: 'Страница профиля',
-      variant: 'primary',
-    })
+    // this.$bvToast.show('my-toast')
+    // this.$noty.show({
+    //   title: 'Просто инфа',
+    //   content: 'Страница профиля',
+    //   variant: 'primary',
+    // })
   },
 }
 </script>
