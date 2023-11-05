@@ -60,16 +60,18 @@
       <b-container class="spec">
         <h2 class="mb-3 text-monospace">{{$t('site.testmonials') }}</h2>
       <Flicking :options="{ align: 'center', circular: true }" :plugins="plugins">
-        <div style="width: 330px; height: 140px;" v-for="(testimonial, i) in 50" :key="i" class="mr-3">
+        <div style="width: 330px; height: 140px;" v-for="(testmonial, i) in testmonials" :key="i" class="mr-3">
           <b-card bg-variant="dark" class="shadow-lg">
             <template #header>
-              <b-avatar size="30" variant="danger" text="IP" class="align-baseline"></b-avatar>
-              Ivan Petrov
+              <b-avatar size="30" :src="`https://shoppify-test.ru/${testmonial.avatar}`" ></b-avatar>
+              {{ testmonial.title }}
             </template>
             <b-card-text>
 
-              <p class="text-justify">
-                Some quick example text to build on the card title and make up the bulk of the card's content.
+              <p class="text">
+                <small>
+                  {{ testmonial.content }}
+                </small>
               </p>
             </b-card-text>
           </b-card>
@@ -111,10 +113,14 @@ export default {
   async mounted() {
     await this.$store.dispatch('landing/fetchTitle', `${this.$i18n.locale}`)
     await this.$store.dispatch('fetchSiteConfig', `${this.$i18n.locale}`)
+    await this.$store.dispatch('landing/fetchTestmonials', `${this.$i18n.locale}`)
   },
   computed: {
     availableLocales() {
       return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
+    },
+    testmonials() {
+      return this.$store.getters['landing/getTestmonials']
     },
     siteTitle() {
       return this.$store.getters['getSiteConfig']['title']
@@ -128,7 +134,6 @@ export default {
     landingButton() {
       return this.$store.getters['landing/getTitle']['button_text']
     },
-
     currentLocale() {
       return this.$i18n.locales.filter((i) => i.code == this.$i18n.locale)
     },

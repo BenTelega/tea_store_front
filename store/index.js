@@ -38,4 +38,6 @@ export const actions = {
       throw error // Прокиньте ошибку для обработки в компоненте
     }
   },
+
+
 }

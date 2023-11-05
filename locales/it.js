@@ -6,7 +6,7 @@ export default {
     faq: 'FAQ',
     home: 'Home',
     store: 'Store',
-    testmonials: "Testmonials"
+    testmonials: "Recensioni"
   },
   header: {
     search: 'Now italian',
