@@ -2,7 +2,7 @@
   <div>
     <b-container>
       <h1>Регистрация</h1>
-      <b-form @submit="register">
+      <b-form>
         <b-form-group label="Имя пользователя" label-for="username-input">
           <b-form-input
             id="username-input"
@@ -20,7 +20,7 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-button type="submit" variant="primary">Зарегистрироваться</b-button>
+        <b-button @click.prevent="register" variant="primary">Зарегистрироваться</b-button>
       </b-form>
     </b-container>
   </div>
@@ -44,10 +44,38 @@ export default {
           },
         })
 
+        this.$bvToast.show('my-toast')
+          this.$noty.show({
+            title: 'Ура',
+            content: 'Успешная регистрация',
+            variant: 'success',
+          })
+
+          const form = new FormData()
+          
+          form.append('username', this.username)
+          form.append('password', this.password)
+
+          let resp = await this.$auth.loginWith('local', { data: form })
+
+          console.log('Успешный вход', resp)
+          this.$router.push('/store') // Перенаправление на страницу после успешного входа
+          this.$bvToast.show('my-toast')
+          this.$noty.show({
+            title: 'Ура',
+            content: 'Успешный вход',
+            variant: 'success',
+          })
+
         // Обработайте успешный ответ от сервера (например, отображение уведомления)
       } catch (error) {
         console.error(error)
-        alert('kjj')
+        this.$bvToast.show('my-toast')
+          this.$noty.show({
+            title: 'Ошибка',
+            content: 'Такой логин уже используется',
+            variant: 'error',
+          })
         // Обработайте ошибку (например, отображение сообщения об ошибке)
       }
     },

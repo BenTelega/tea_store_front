@@ -59,7 +59,8 @@
 
         <!-- Основная колонка -->
         <b-col md="9">
-          <Card variant="primary"><h2>{{ selectedCategoryName }}</h2></Card>
+           <b-card bg-variant="light" text-variant="dark" class="shadow-sm mt-2 mb-3" :title="selectedCategoryName" >
+           </b-card>
 
           <div class="row y-gap-30" v-if="isLoading">
             <b-col lg="3" md="4" class="mb-4" v-for="item in 26">

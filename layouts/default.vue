@@ -3,6 +3,7 @@
     <Header />
     <Toast />
     <Nuxt />
+    
   </div>
 </template>
 <style>

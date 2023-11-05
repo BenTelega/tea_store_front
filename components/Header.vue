@@ -4,8 +4,14 @@
       <b-container>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="bold-links">
-            <b-nav-item :to="localePath('/', this.$i18n.locale)">{{
+            <b-nav-item :to="localePath('/', this.$i18n.locale)">
+            {{
               $t('site.home')
+            }}</b-nav-item>
+
+
+            <b-nav-item :to="localePath('/store', this.$i18n.locale)">{{
+              $t('site.store')
             }}</b-nav-item>
 
             <b-nav-item :to="localePath('/r/about', this.$i18n.locale)">{{
@@ -181,7 +187,7 @@ export default {
 }
 
 .bold-links a {
-  font-weight: light;
+  font-weight: bold;
 }
 
 .dp {
