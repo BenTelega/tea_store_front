@@ -100,12 +100,13 @@
             <b-icon icon="cart4"></b-icon>
             $0.00
           </b-button>
-          <!-- <b-dropdown right text="Menu" size="sm">
+          <b-dropdown right text="Menu" size="sm">
+ 
             <b-dropdown-item>Item 1</b-dropdown-item>
             <b-dropdown-item>Item 2</b-dropdown-item>
             <b-dropdown-divider></b-dropdown-divider>
             <b-dropdown-item>Item 3</b-dropdown-item>
-          </b-dropdown> -->
+          </b-dropdown>
         </b-container>
       </b-navbar>
     </div>
@@ -134,7 +135,7 @@ export default {
     },
     currentLocale() {
       return this.$i18n.locales.filter((i) => i.code == this.$i18n.locale)
-    },
+    }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)

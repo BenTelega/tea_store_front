@@ -11,7 +11,7 @@
             <h4 class="text-monospace">${{ selectedProduct['price'] }}</h4>
             <div class="mt-3">
               <b-form-spinbutton id="sb-inline" v-model="value" inline></b-form-spinbutton>
-              <button class="btn btn-outline-success">ADD TO CART</button>
+              <button class="btn btn-outline-success" @click.prevent="addToCart(selectedProduct)">ADD TO CART</button>
             </div>
           </b-col>
         </b-row>
@@ -19,6 +19,7 @@
 
     </b-modal>
     <!-- <section class="layout-pt-sm layout-pb-lg bg-yellow-4"></section> -->
+    <Cart/>
     <b-container>
       <b-row>
         <!-- Боковая колонка -->
@@ -30,14 +31,14 @@
                   @click="selectCategory(null)">
                   <div class="d-flex w-100 justify-content-between">
                     <p class="mb-1">ALL categories</p>
-                    <small>{{ categoryCount }}</small>
+                    <small></small>
                   </div>
                 </b-list-group-item>
                 <b-list-group-item v-for="category in categories" :key="category.id" href="#"
                   class="custom-item flex-column align-items-start" @click="selectCategory(category.id)">
                   <div class="d-flex w-100 justify-content-between">
                     <p class="mb-1">{{ category.name }}</p>
-                    <small>{{ categoryCount }}</small>
+                    <small></small>
                   </div>
                 </b-list-group-item>
               </b-list-group>
@@ -53,7 +54,7 @@
           </b-card>
 
           <div class="row y-gap-30" v-if="isLoading">
-            <b-col lg="3" md="4" class="mb-4" v-for="item in 8">
+            <b-col lg="3" md="4" class="mb-4" v-for="(item, i) in 8" :key="i">
               <b-card>
                 <b-skeleton animation="wave" width="85%"></b-skeleton>
                 <b-skeleton animation="wave" width="55%"></b-skeleton>
@@ -62,7 +63,7 @@
             </b-col>
           </div>
           <b-row v-else>
-            <b-col lg="3" md="4" class="mb-4" v-for="product in products">
+            <b-col lg="3" md="4" class="mb-4" v-for="product in products" :key="product.id">
               <div class="product-grid2 shadow-sm">
                 <div class="product-image2">
                   <a href="#">
@@ -79,6 +80,7 @@
 
                   </h3>
                   <span class="price">$145.00</span>
+
                 </div>
               </div>
             </b-col>
@@ -148,6 +150,8 @@ export default {
       this.selectedProduct = product;
       this.modalShow = true;
     },
+    addToCart(product) {
+    }
   },
 
   watch: {
