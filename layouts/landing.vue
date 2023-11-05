@@ -1,45 +1,40 @@
 <template>
-  <div>
-    <div
-      class="vw-100 vh-100 position-absolute overflow-hidden op"
-      :style="{ backgroundImage: `url(${landingCover})` }"
-    >
-    </div>
-    <Nuxt />
-  </div>
+	<div>
+		<Nuxt />
+	</div>
 </template>
 <script>
-import backgroundImagePath from '~/assets/cover1.jpg'
 export default {
-  data() {
-    return { backgroundImagePath }
-  },
-  computed: {
-    landingCover() {
-      return "https://shoppify-test.ru" + this.$store.getters['landing/getTitle']['cover']
-    },
-  }
-}
+	data() {
+		return {};
+	},
+	// methods: {
+	// 	...mapActions('landing', ['fetchLanding']),
+	// },
+	// async mounted() {
+	// 	await this.fetchLanding(this.$i18n.locale);
+	// },
+};
 </script>
 
-<style >
+<style>
 .spec h1 {
-  font-size: 3.3rem;
+	font-size: 3.3rem;
 }
 
 @media (min-height: 576px) {
-  .spec {
-    max-width: 890px;
-  }
+	.spec {
+		max-width: 890px;
+	}
 }
 
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.2s;
+	transition: opacity 0.2s;
 }
 .page-enter,
 .page-leave-active {
-  opacity: 0;
+	opacity: 0;
 }
 
 /* @media (min-width: 992px) .spec {
@@ -54,10 +49,10 @@ export default {
 } */
 
 .op {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #999;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #999;
 }
 </style>

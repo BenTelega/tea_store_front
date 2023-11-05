@@ -1,16 +1,16 @@
 <template>
-  <div>FAQPage</div>
+	<div>FAQPage</div>
 </template>
 
 <script>
 export default {
-  name: 'FAQPage',
-  layout: 'default',
+	name: 'FAQPage',
+	layout: 'default',
 
-  head() {
-    return {
-      title: 'FAQPage',
-    }
-  },
-}
+	head() {
+		return {
+			title: 'FAQPage',
+		};
+	},
+};
 </script>
