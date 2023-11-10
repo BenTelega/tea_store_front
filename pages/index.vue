@@ -90,7 +90,7 @@
 				</b-container>
 			</main>
 			<footer class="mt-auto">
-				<b-container class="shadow-lg spec">
+				<b-container class="spec">
 					<h2 class="mb-3">
 						{{ $t('site.testmonials') }}
 					</h2>
