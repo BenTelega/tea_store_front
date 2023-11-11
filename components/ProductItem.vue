@@ -37,9 +37,7 @@ export default {
 	props: {
 		product_data: {
 			type: Object,
-			default() {
-				return {};
-			},
+			default: {},
 		},
 	},
 	methods: {
@@ -47,7 +45,7 @@ export default {
 			this.$emit('showProductModal', product);
 		},
 		addToCart() {
-			alert('ok');
+			this.$store.dispatch('cart/addToCart', { product: this.product_data });
 			// this.$emit('addToCart', this.product_data);
 		},
 	},

@@ -23,7 +23,12 @@
 								v-model="value"
 								inline
 							></b-form-spinbutton>
-							<button class="btn btn-outline-success">ADD TO CART</button>
+							<button
+								@click="addToCart(selectedProduct)"
+								class="btn btn-outline-success"
+							>
+								ADD TO CART
+							</button>
 						</div>
 					</b-col>
 				</b-row>
@@ -84,12 +89,49 @@
 						</b-col>
 					</div>
 					<b-row v-else>
-						<product-item
+						<b-col
+							lg="3"
+							md="4"
+							class="mb-4"
 							v-for="product in products"
 							:key="product.id"
-							:product_data="product"
 							@showProductModal="showProductModal"
-						/>
+						>
+							<div class="product-grid2 shadow-sm">
+								<div class="product-image2">
+									<a href="#">
+										<img
+											class="pic-1"
+											:src="`https://shoppify-test.ru/${product.cover}`"
+										/>
+										<img
+											class="pic-2"
+											:src="`https://shoppify-test.ru/${product.cover}`"
+										/>
+									</a>
+
+									<a
+										href="#"
+										class="add-to-cart"
+										@click.prevent="showProductModal(product)"
+										>View</a
+									>
+								</div>
+								<div class="product-content">
+									<b-badge href="#" variant="info">{{
+										product.category
+									}}</b-badge>
+									<h3 class="title">
+										<a href="#">{{ product.name }}</a>
+									</h3>
+									<span class="price">${{ product.price }}</span>
+									<!-- <a href="#" @click="$store.commit('cart/setToCart', product)"
+										>add to cart</a
+									> -->
+									<a href="#" @click="addToCart(product)">add to cart</a>
+								</div>
+							</div>
+						</b-col>
 					</b-row>
 
 					<!-- Добавьте здесь содержимое вашей основной колонки -->
@@ -145,6 +187,14 @@ export default {
 		showProductModal(product) {
 			this.selectedProduct = product;
 			this.modalShow = true;
+		},
+
+		addToCart(product) {
+			let payload = {
+				product: product,
+				quantity: this.value,
+			};
+			this.$store.dispatch('cart/addToCart', payload);
 		},
 	},
 

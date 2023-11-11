@@ -1,44 +1,45 @@
 export const state = () => ({
+	items: [],
 	cart: [],
 });
 
 export const mutations = {
-	// setCart: (state, product) => {
-	// 	if (state.cart.length) {
-	// 		let isProductExist = false;
-	// 		state.cart.map(function (item) {
-	// 			if (item.id === product.id) {
-	// 				isProductExist = true;
-	// 				item.quantity++;
-	// 			}
-	// 		});
-	// 		if (!isProductExist) {
-	// 			state.cart.push(product);
-	// 		}
-	// 	} else {
-	// 		state.cart.push(product);
-	// 	}
-	// },
 	setToCart(state, payload) {
-		state.cart.push(payload);
+		const product = payload.product;
+		const quantity = payload.quantity;
+		let productInCartIndex = state.cart.findIndex(
+			(item) => item.id === product.id
+		);
+		if (productInCartIndex !== -1) {
+			state.cart[productInCartIndex].quantity++;
+			return;
+		}
+
+		product.quantity = quantity;
+		state.cart.push(product);
 	},
+
+	increment(state, index) {
+		state.cart[index].quantity++;
+	},
+
 	removeFromCart: (state, index) => {
 		state.cart.splice(index, 1);
 	},
 };
 
 export const getters = {
-	// CART(state) {
-	// 	return state.cart;
-	// },
+	CART(state) {
+		return state.cart;
+	},
 	countCart: (state) => {
 		return state.cart.length;
 	},
 };
 
 export const actions = {
-	addToCart({ commit }, product) {
-		commit('setToCart', product);
+	addToCart({ commit }, payload) {
+		commit('setToCart', payload);
 	},
 	deleteFromCart({ commit }, index) {
 		commit('removeFromCart', index);
