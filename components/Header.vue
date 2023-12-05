@@ -96,9 +96,14 @@
               <b-dropdown-item href="#">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown> -->
 					</b-navbar-nav>
-					<b-button to="/cart" variant="info" class="mr-3" size="sm">
+					<b-button
+						:to="localePath('/cart', this.$i18n.locale)"
+						variant="info"
+						class="mr-3"
+						size="sm"
+					>
 						<b-icon icon="cart4"></b-icon>
-						$0.00
+						{{ cartTotal }}
 						<b-badge variant="light" v-if="countCart">{{ countCart }}</b-badge>
 					</b-button>
 					<!-- <b-dropdown right text="Menu" size="sm">
@@ -137,6 +142,16 @@ export default {
 		},
 		currentLocale() {
 			return this.$i18n.locales.filter((i) => i.code == this.$i18n.locale);
+		},
+		cartTotal() {
+			let amount = this.cart.reduce(
+				(total, item) => total + item.price * item.quantity,
+				0
+			);
+			return amount.toLocaleString('en-US', {
+				style: 'currency',
+				currency: 'USD',
+			});
 		},
 	},
 	mounted() {

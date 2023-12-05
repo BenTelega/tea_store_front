@@ -128,7 +128,12 @@
 									<!-- <a href="#" @click="$store.commit('cart/setToCart', product)"
 										>add to cart</a
 									> -->
-									<a href="#" @click="addToCart(product)">add to cart</a>
+									<a
+										class="btn btn-outline-success btn-sm"
+										href="#"
+										@click="addToCart(product)"
+										>Add to cart</a
+									>
 								</div>
 							</div>
 						</b-col>
@@ -195,6 +200,12 @@ export default {
 				quantity: this.value,
 			};
 			this.$store.dispatch('cart/addToCart', payload);
+			this.$bvToast.show('my-toast');
+			this.$noty.show({
+				title: 'Уведомление',
+				content: `${product.name}\n\nТовар добавлен в корзину`,
+				variant: 'warning',
+			});
 		},
 	},
 
